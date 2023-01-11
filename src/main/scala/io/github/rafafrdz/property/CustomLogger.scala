@@ -17,7 +17,6 @@ trait CustomLogger {
 
   // creates file appender
   var fileAppender = new FileAppender()
-  fileAppender.setFile("applog3.txt")
   fileAppender.setLayout(layout)
   fileAppender.activateOptions()
 

@@ -3,11 +3,12 @@ package io.github.rafafrdz.table
 import cats.effect.IO
 import fs2.io.file.{Files, Path}
 import io.github.rafafrdz.contact.ReceiverMail
+import io.github.rafafrdz.property.Properties
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 import scala.util.{Failure, Success, Try}
 
-case class Table(resource: Resources) {
+case class Table(properties: Properties) {
 
   val spark: SparkSession =
     SparkSession
@@ -16,9 +17,9 @@ case class Table(resource: Resources) {
       .appName("automated-email")
       .getOrCreate()
 
-  private val sep: String = ","
+  private val sep: String = properties.sepCSV
 
-  private lazy val df: DataFrame = spark.read.option("header", "true").option("sep", sep).csv(resource.pathTable)
+  private lazy val df: DataFrame = spark.read.option("header", "true").option("sep", sep).csv(properties.resource.pathTable)
 
   private lazy val header: Array[String] = {
     val h: Array[String] = df.columns
@@ -50,7 +51,7 @@ case class Table(resource: Resources) {
     senders = replace(bodyText)
   } yield senders
 
-  private lazy val fileTxt: IO[String] = Files[IO].readUtf8(Path(resource.pathTxt)).compile.string
+  private lazy val fileTxt: IO[String] = Files[IO].readUtf8(Path(properties.resource.pathTxt)).compile.string
 
   def ref(x: String): String = s"{{$x}}"
 }

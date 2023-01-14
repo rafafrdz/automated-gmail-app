@@ -38,7 +38,7 @@ object App extends IOApp with CustomLogger {
 
   def programm(properties: Properties, gmail: GMailClient): IO[NonEmptyList[String]] =
     for {
-      receivers <- Table(properties.resource).receivers
+      receivers <- Table(properties).receivers
       mails = receivers.map(rec => createMail(properties.sender, rec))
       _ <- IO.println("Sending mails...")
       xs = mails.map(mail => retrySending(gmail, mail, properties.retryNumber))

@@ -1,4 +1,4 @@
-package io.github.rafafrdz.property
+package io.github.rafafrdz.back.property
 
 import cats.effect.IO
 import org.apache.log4j._

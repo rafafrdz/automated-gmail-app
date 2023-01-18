@@ -1,21 +1,21 @@
-package io.github.rafafrdz.app
+package io.github.rafafrdz.back.app
 
 import cats.data.NonEmptyList
 import cats.effect.{ExitCode, IO, IOApp}
-import io.github.rafafrdz.contact.{ReceiverMail, SenderMail}
-import io.github.rafafrdz.gmail.client.GMailClient
-import io.github.rafafrdz.gmail.email.GMail
-import io.github.rafafrdz.gmail.functions.gmail._
-import io.github.rafafrdz.property.{CustomLogger, Properties}
-import io.github.rafafrdz.table.Table
+import io.github.rafafrdz.back.contact.{ReceiverMail, SenderMail}
+import io.github.rafafrdz.back.gmail.client.GMailClient
+import io.github.rafafrdz.back.gmail.email.GMail
+import io.github.rafafrdz.back.property.{CustomLogger, Properties}
+import io.github.rafafrdz.back.gmail.functions.gmail._
+import io.github.rafafrdz.back.table.Table
 
 import scala.annotation.tailrec
 import scala.concurrent.duration.DurationInt
 import scala.language.postfixOps
 
-object App extends IOApp with CustomLogger {
+object App extends CustomLogger {
 
-  override def run(args: List[String]): IO[ExitCode] = for {
+  def run(args: List[String]): IO[ExitCode] = for {
     properties <- IO {
       require(args.nonEmpty, "It requires configuration path. Example: path1/path2/application.conf")
       logger(s"Getting configuration from ${args.head}")

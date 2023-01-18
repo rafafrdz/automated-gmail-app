@@ -1,4 +1,4 @@
-package io.github.rafafrdz.gmail.email
+package io.github.rafafrdz.back.gmail.email
 
 import cats.effect.IO
 import emil.Mail

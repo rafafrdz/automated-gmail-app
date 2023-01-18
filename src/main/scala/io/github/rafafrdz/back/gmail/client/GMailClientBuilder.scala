@@ -1,8 +1,8 @@
-package io.github.rafafrdz.gmail.client
+package io.github.rafafrdz.back.gmail.client
 
 import emil.MailConfig.UrlParts
 import emil.{MailConfig, SSLType}
-import io.github.rafafrdz.gmail.client.GMailClientBuilder.ImplicitURLPart
+import GMailClientBuilder.ImplicitURLPart
 
 import java.util.concurrent.TimeUnit
 import scala.concurrent.duration.FiniteDuration

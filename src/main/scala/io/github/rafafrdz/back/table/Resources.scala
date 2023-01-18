@@ -1,4 +1,4 @@
-package io.github.rafafrdz.table
+package io.github.rafafrdz.back.table
 
 case class Resources(pathTable: String, pathTxt: String) {
   self =>

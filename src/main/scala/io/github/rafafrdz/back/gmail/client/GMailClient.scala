@@ -1,11 +1,11 @@
-package io.github.rafafrdz.gmail.client
+package io.github.rafafrdz.back.gmail.client
 
 import cats.data.NonEmptyList
 import cats.effect.{IO, unsafe}
 import emil.javamail.JavaMailEmil
 import emil.{Emil, Mail, MailConfig}
-import io.github.rafafrdz.gmail.client.GMailClient.{IOGmail, ioemil}
-import io.github.rafafrdz.gmail.email.GMail
+import GMailClient.{IOGmail, ioemil}
+import io.github.rafafrdz.back.gmail.email.GMail
 
 trait GMailClient extends IOGmail {
 

@@ -1,8 +1,8 @@
-package io.github.rafafrdz.property
+package io.github.rafafrdz.back.property
 
 import com.typesafe.config.{Config, ConfigFactory}
-import io.github.rafafrdz.contact.{AccountGmail, SenderMail}
-import io.github.rafafrdz.table.Resources
+import io.github.rafafrdz.back.contact.{AccountGmail, SenderMail}
+import io.github.rafafrdz.back.table.Resources
 
 import java.io.File
 import scala.util.Try

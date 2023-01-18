@@ -1,9 +1,9 @@
-package io.github.rafafrdz.table
+package io.github.rafafrdz.back.table
 
 import cats.effect.IO
 import fs2.io.file.{Files, Path}
-import io.github.rafafrdz.contact.ReceiverMail
-import io.github.rafafrdz.property.Properties
+import io.github.rafafrdz.back.contact.ReceiverMail
+import io.github.rafafrdz.back.property.Properties
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 import scala.util.{Failure, Success, Try}

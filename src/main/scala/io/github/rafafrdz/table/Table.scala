@@ -1,16 +1,17 @@
 package io.github.rafafrdz.table
 
 import cats.effect.IO
+import cats.effect.unsafe.implicits.global
 import io.github.rafafrdz.contact.ReceiverMail
 import io.github.rafafrdz.property.Properties
-import io.github.rafafrdz.source.{GoogleDriveSource, HTTPResource, Resources}
+import io.github.rafafrdz.source.Resources
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 import scala.util.{Failure, Success, Try}
 
 case class Table(properties: Properties) {
 
-  val spark: SparkSession =
+  implicit lazy val spark: SparkSession =
     SparkSession
       .builder()
       .master("local[*]")
@@ -19,7 +20,7 @@ case class Table(properties: Properties) {
 
   private val sep: String = properties.sepCSV
 
-  private lazy val df: DataFrame = spark.read.option("header", "true").option("sep", sep).csv(properties.resource.tableURL)
+  private lazy val df: DataFrame = Resources.getTable(properties.resource, sep).unsafeRunSync()
 
   private lazy val header: Array[String] = {
     val h: Array[String] = df.columns

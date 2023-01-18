@@ -17,7 +17,8 @@ object GoogleDriveSource extends Package[GoogleDriveSource] {
   private val DriveDocumentURLPrefix: String = "https://docs.google.com/document/d/"
   /** Suffix */
   private val DriveFileURLSufix: String = "/view?usp=share_link"
-  private val DriveEditSharingSufix: String = "edit?usp=sharing"
+  private val DriveEditSharingSufix: String = "/edit?usp=sharing"
+  private val DriveEditShareSufix: String = "/edit?usp=share_link"
   private val DriveExportFormatQuery: String = "/export?format="
 
 
@@ -69,7 +70,7 @@ object GoogleDriveSource extends Package[GoogleDriveSource] {
   }
 
   private def getID(url: String): String =
-    List(DriveFileURLPrefix, DriveFileURLSufix, DriveSpreadSheetURLPrefix, DriveEditSharingSufix, DriveDocumentURLPrefix, "/")
+    List(DriveFileURLPrefix, DriveFileURLSufix, DriveSpreadSheetURLPrefix, DriveEditSharingSufix, DriveDocumentURLPrefix, DriveEditShareSufix, "/")
       .foldLeft(url)(drop)
 
   private def drop(url: String, part: String): String = url.replace(part, "")

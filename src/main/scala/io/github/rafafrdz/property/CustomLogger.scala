@@ -1,6 +1,5 @@
 package io.github.rafafrdz.property
 
-import cats.effect.IO
 import org.apache.log4j._
 
 trait CustomLogger {

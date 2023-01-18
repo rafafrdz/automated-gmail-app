@@ -21,6 +21,7 @@ trait Properties {
   def sender: SenderMail = SenderMail(account.user, conf.getString("gmail.subject"), Try(conf.getString("gmail.from")).toOption)
 
   def retryNumber: Int = Try(conf.getString("gmail.retries").toInt).getOrElse(Properties.RetriesDefault)
+
   def sepCSV: String = Try(conf.getString("table.sep")).getOrElse(",")
 }
 

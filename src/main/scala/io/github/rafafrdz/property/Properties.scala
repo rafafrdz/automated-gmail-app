@@ -2,7 +2,7 @@ package io.github.rafafrdz.property
 
 import com.typesafe.config.{Config, ConfigFactory}
 import io.github.rafafrdz.contact.{AccountGmail, SenderMail}
-import io.github.rafafrdz.table.Resources
+import io.github.rafafrdz.source.Resources
 
 import java.io.File
 import scala.util.Try

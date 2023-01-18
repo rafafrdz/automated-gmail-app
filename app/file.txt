@@ -1,0 +1,2 @@
+Esto es un mensaje para {{name}} con
+email {{email}}: necesito que me devuelvas mi {{word}}

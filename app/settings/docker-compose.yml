@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  app:
+    image: rafafrdz/automated-gmail-app:latest
+    container_name: Automated-Gmail-App
+    volumes:
+      - ./../:/app/resources
+      - ./../settings:/app/settings
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    driver: bridge

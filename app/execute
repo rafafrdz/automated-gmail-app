@@ -1,0 +1,2 @@
+#!/bin/bash
+docker-compose -f settings/docker-compose.yml up && docker rm -f $(docker ps -aq) > tmp && rm tmp

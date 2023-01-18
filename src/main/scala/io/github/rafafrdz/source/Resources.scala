@@ -38,7 +38,7 @@ object Resources extends Package[Resources] {
 
   private def getFileResource(url: String): IO[String] = {
     val isHttp: Boolean = url.contains("http")
-    val isGoogleDrive: Boolean = isHttp && url.contains("drive.google.com")
+    val isGoogleDrive: Boolean = isHttp && url.contains("google.com")
     if (isGoogleDrive) GoogleDriveSource.getFile(url)
     else if (isHttp) HTTPResource.getFile(url)
     else getFile(url)
